@@ -9,5 +9,4 @@ public class ThymeleafCrudWebAppApplication {
     public static void main(String[] args) {
         SpringApplication.run(ThymeleafCrudWebAppApplication.class, args);
     }
-
 }

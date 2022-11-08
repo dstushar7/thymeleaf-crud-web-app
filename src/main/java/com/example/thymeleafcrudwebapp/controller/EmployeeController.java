@@ -5,11 +5,10 @@ import com.example.thymeleafcrudwebapp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Controller // Indicates a controller component
+@RestController // Indicates a controller component
+@RequestMapping("/employee")
 public class EmployeeController {
 
     @Autowired
@@ -22,14 +21,14 @@ public class EmployeeController {
         return "index";
     }
 
-    @GetMapping("/employee/add")
+    @GetMapping("/add")
     public String showNewEmployeeForm(Model model){
         Employee employee = new Employee();
         model.addAttribute("employee", employee);
         return "addEmployee";
     }
 
-    @PostMapping ("/saveEmployee")
+    @PostMapping ("/save")
     public String saveEmployee(@ModelAttribute("employee") Employee employee){
         // Save Employee to DB
         employeeService.saveEmployee(employee);
