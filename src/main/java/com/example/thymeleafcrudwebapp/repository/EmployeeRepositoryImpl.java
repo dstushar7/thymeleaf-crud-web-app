@@ -7,5 +7,4 @@ public abstract class EmployeeRepositoryImpl implements IEmployeeRepository{
     public Employee findByFirstName(String name) {
         return null;
     }
-
 }
